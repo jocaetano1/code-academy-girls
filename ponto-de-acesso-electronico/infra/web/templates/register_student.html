@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div class="border col-md-4 mx-auto p-3 mt-5">
+        <form action="/students/create" method="post">
+            <div class="row d-flex flex-column mt-3">
+                <div class="col-auto mb-2">
+                    <label for="fullName">Nome completo <span class="text-danger">*</span></label>
+                </div>
+                <div class="col-auto">
+                    <input type="text" class="form-control border-2 shadow-none" name="full_name" placeholder="Nome completo" required>
+                </div>
+            </div>
+            <div class="row d-flex flex-column mt-3">
+                <div class="col-auto mb-2">
+                    <label for="identityNumber">Bilhete de Identidade <span class="text-danger">*</span></label>
+                </div>
+                <div class="col-auto">
+                    <input type="text" class="form-control border-2 shadow-none" name="identity_number" placeholder="Bilhete de Identidade"
+                        required>
+                </div>
+            </div>
+            <div class="row d-flex flex-column mt-3">
+                <div class="col-auto mb-2">
+                    <label for="course">Curso <span class="text-danger">*</span></label>
+                </div>
+                <div class="col-auto">
+                    <select name="course" id="courseId" class="form-select shadow-none border-2" required>
+                        <option class="text-muted">Selecionar o Curso</option>
+                        <option value="Desenvolvimento Web">Desenvolvimento Web</option>
+                        <option value="Excel Básico">Excel Nível I</option>
+                        <option value="Introdução ao Python">Introdução ao Python</option>
+                        <option value="Inteligencia Emocional">Inteligencia Emocional</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row d-flex flex-column mt-3">
+                <div class="col-auto mb-2">
+                    <label for="phoneNumber">Telemóvel <span class="text-danger">*</span></label>
+                </div>
+                <div class="col-auto">
+                    <input type="text" class="form-control border-2 shadow-none" name="phone_number"
+                        placeholder="Telemóvel" required>
+                </div>
+            </div>
+            <div class="row d-flex flex-column mt-3">
+                <div class="col-auto mb-2">
+                    <label for="email">E-mail <span class="text-danger">*</span></label>
+                </div>
+                <div class="col-auto">
+                    <input type="email" class="form-control border-2 shadow-none" name="email" placeholder="E-mail"
+                        required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Salvar</button>
+        </form>
+    </div>
+{% endblock body %}
