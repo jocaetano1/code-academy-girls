@@ -2,7 +2,7 @@ import unittest
 from datetime import datetime
 
 from adaptors.inmem.inmen_attendance_repository import InmemAttendanceRepository
-from use_cases.authentication import IdentityNumberAuth
+from use_cases.auth.identity_number import IdentityNumberAuthentication
 from use_cases.time_of_entry import TimeOfEntry
 from test_data.stubs.student_repository_stub import StudentRepositoryStub
 
@@ -14,7 +14,7 @@ class TimeOfEntryTestCase(unittest.TestCase):
         # Arrange
         identity_number = "004843261LA047"
         student_repository = StudentRepositoryStub()
-        auth = IdentityNumberAuth(student_repository)
+        auth = IdentityNumberAuthentication(student_repository)
         student = auth.autenticate(identity_number)
 
         # Act.
@@ -23,5 +23,6 @@ class TimeOfEntryTestCase(unittest.TestCase):
         attendance = time_of_entry.execute(student)
 
         # Assert
-        self.assertEqual(attendance.entry_time.strftime("%H:%M"), datetime.now().strftime("%H:%M"))
+        self.assertEqual(attendance.entry_time.strftime(
+            "%H:%M"), datetime.now().strftime("%H:%M"))
         self.assertEqual(attendance.created, datetime.now().date())

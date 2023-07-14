@@ -1,4 +1,8 @@
-class IdentityNumberAuth(Authentication):
+from use_cases.auth import Authentication
+from domain.student_repository import StudentRepository
+
+
+class IdentityNumberAuthentication(Authentication):
 
     def __init__(self, repository: StudentRepository):
         self.repository = repository
