@@ -13,15 +13,24 @@ class StudentRepositoryStub(StudentRepository):
         self._populate()
 
     def _populate(self):
-        data = {
+        data_1 = {
             "full_name": "Joao Santos",
             "identity_number": "004843261LA047",
             "course": "Curso de Introdução ao Python",
             "email": "john.doe@gmail.com",
             "phone_number": "+244933843893"
         }
-        student = Student.compose(data)
-        self.create(student)
+        data_2 = {
+            "full_name": "Joao Santos",
+            "identity_number": "004843261LA048",
+            "course": "Curso de Introdução ao Python",
+            "email": "john.doe@gmail.com",
+            "phone_number": "+244933843893"
+        }
+        student_1 = Student.compose(data_1)
+        student_2 = Student.compose(data_2)
+        self.create(student_1)
+        self.create(student_2)
 
     def create(self, student: Student) -> Union[Union[StudentInvalidError, StudentDataError]]:
         """Insert new student in database"""
